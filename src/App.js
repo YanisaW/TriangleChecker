@@ -34,7 +34,7 @@ export default class App extends Component {
     var b = eval(this.state.side_2 * this.state.side_2)
     var c = eval(this.state.side_3 * this.state.side_3)
   
-    if(a >= 0 && b>= 0 && c >= 0){
+    if(this.state.side_1 >= 0 && this.state.side_2>= 0 && this.state.side_3 >= 0){
         if((eval((this.state.side_1*1) + (this.state.side_2*1)) < (this.state.side_3*1))
         || (eval((this.state.side_2*1) + (this.state.side_3*1)) < (this.state.side_1*1))
         || (eval((this.state.side_1*1) + (this.state.side_3*1)) < (this.state.side_2*1))){
