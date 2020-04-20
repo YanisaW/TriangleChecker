@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { SketchPicker } from 'react-color';
+//import { SketchPicker } from 'react-color';
 
 export default class App extends Component {
 
