@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/TriangleChecker/static/css/main.d1b05096.chunk.css",
+    "main.js": "/TriangleChecker/static/js/main.15caf88e.chunk.js",
+    "main.js.map": "/TriangleChecker/static/js/main.15caf88e.chunk.js.map",
+    "runtime-main.js": "/TriangleChecker/static/js/runtime-main.2361f471.js",
+    "runtime-main.js.map": "/TriangleChecker/static/js/runtime-main.2361f471.js.map",
+    "static/js/2.a97e2bdf.chunk.js": "/TriangleChecker/static/js/2.a97e2bdf.chunk.js",
+    "static/js/2.a97e2bdf.chunk.js.map": "/TriangleChecker/static/js/2.a97e2bdf.chunk.js.map",
+    "index.html": "/TriangleChecker/index.html",
+    "precache-manifest.6756c7ef162d849ecfaa76be35989d26.js": "/TriangleChecker/precache-manifest.6756c7ef162d849ecfaa76be35989d26.js",
+    "service-worker.js": "/TriangleChecker/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/TriangleChecker/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.a97e2bdf.chunk.js.LICENSE.txt": "/TriangleChecker/static/js/2.a97e2bdf.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/TriangleChecker/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2361f471.js",
+    "static/js/2.a97e2bdf.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.15caf88e.chunk.js"
+  ]
+}
