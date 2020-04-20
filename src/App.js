@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 //import { SketchPicker } from 'react-color';
+import { Helmet } from 'react-helmet';
 
 export default class App extends Component {
 
@@ -66,9 +67,13 @@ export default class App extends Component {
     
     return (
       
-     
+      
 
       <div className="App">
+
+        <Helmet>
+          <title>TriangleChecker</title>
+        </Helmet>
         
         <br></br> <br></br>
         <h1>Three Angle</h1>
