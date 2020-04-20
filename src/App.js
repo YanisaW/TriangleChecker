@@ -34,29 +34,32 @@ export default class App extends Component {
     var b = eval(this.state.side_2 * this.state.side_2)
     var c = eval(this.state.side_3 * this.state.side_3)
   
-    if((eval((this.state.side_1*1) + (this.state.side_2*1)) < (this.state.side_3*1))
-    || (eval((this.state.side_2*1) + (this.state.side_3*1)) < (this.state.side_1*1))
-    || (eval((this.state.side_1*1) + (this.state.side_3*1)) < (this.state.side_2*1))){
-      this.setState({result: "Not a Triangle"})
-    }
+    if(a >= 0 && b>= 0 && c >= 0){
+        if((eval((this.state.side_1*1) + (this.state.side_2*1)) < (this.state.side_3*1))
+        || (eval((this.state.side_2*1) + (this.state.side_3*1)) < (this.state.side_1*1))
+        || (eval((this.state.side_1*1) + (this.state.side_3*1)) < (this.state.side_2*1))){
+          this.setState({result: "Not a Triangle"})
+        }
 
-    else if((this.state.side_1 == this.state.side_2) && (this.state.side_2 == this.state.side_3)){
-        this.setState({result: "Equilateral Triangle"})
-    }
+        else if((this.state.side_1 === this.state.side_2) && (this.state.side_2 === this.state.side_3)){
+          this.setState({result: "Equilateral Triangle"})
+        }
    
-    else if(((this.state.side_1 == this.state.side_2) && (this.state.side_1 != this.state.side_3)) 
-       || ((this.state.side_2 == this.state.side_3) && (this.state.side_2 != this.state.side_1))
-       || ((this.state.side_1 == this.state.side_3) && (this.state.side_1 != this.state.side_2))){
-         this.setState({result: "Isosceles Triangle"})
-   }
+        else if(((this.state.side_1 === this.state.side_2) && (this.state.side_1 !== this.state.side_3)) 
+        || ((this.state.side_2 === this.state.side_3) && (this.state.side_2 !== this.state.side_1))
+        || ((this.state.side_1 === this.state.side_3) && (this.state.side_1 !== this.state.side_2))){
+          this.setState({result: "Isosceles Triangle"})
+        }
    
-    else if((a == eval(b+c)) || (b == eval(a+c)) || (c == eval(a+b))){
-         this.setState({result: "Right Triangle"})
-    }
+        else if((a === eval(b+c)) || (b === eval(a+c)) || (c === eval(a+b))){
+          this.setState({result: "Right Triangle"})
+        }
   
 
-    else if((this.state.side_1 != this.state.side_2) && (this.state.side_2 != this.state.side_3) && (this.state.side_1 != this.state.side_3) ){
-      this.setState({result: "Scalene Triangle"})}
+        else if((this.state.side_1 !== this.state.side_2) && (this.state.side_2 !== this.state.side_3) && (this.state.side_1 !== this.state.side_3) ){
+        this.setState({result: "Scalene Triangle"})
+        }
+      }else {this.setState({result: "Cannont fill"})}
     
   
     event.preventDefault();
