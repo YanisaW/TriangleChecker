@@ -14,13 +14,16 @@ export default class App extends Component {
       side_2: 0,
       side_3: 0,
       result: "",
-     
+      err1: "",
+      err2: "",
+      err3: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
+  
   handleChange(e){
     this.setState( { [e.target.name] : e.target.value} )
   }
@@ -29,8 +32,24 @@ export default class App extends Component {
     this.setState({ background: color.hex });
   };
 
+  validate = () => {
+    let err1 =  "";
+    let err2 =  "";
+    let err3 =  "";
+
+    if(!this.state.side_1){
+      err1 = 'cannot be empty!';
+    }
+    if(err1){
+      this.setState({err1});
+      return false;
+    }
+
+    return true;
+  };
   
   handleClick(event) {
+    const isValid = this.validate();
     
     var a = eval(this.state.side_1 * this.state.side_1)
     var b = eval(this.state.side_2 * this.state.side_2)
@@ -98,7 +117,7 @@ export default class App extends Component {
             required
             side_1 ={this.state.side_1}
             onChange={this.handleChange} /> 
-            <span class="validity"></span>
+            <div style={{fontSize: 15,color:'red'}}>{this.state.err1}</div>
           </label>
           
           <br></br>
@@ -113,7 +132,7 @@ export default class App extends Component {
             required
             side_2 ={this.state.side_2} 
             onChange={this.handleChange} /> 
-            <span class="validity"></span>
+            <div style={{fontSize: 15,color:'red'}}>{this.state.err2}</div>
           </label>
 
           <br></br>
@@ -128,12 +147,12 @@ export default class App extends Component {
               required
               side_3 ={this.state.side_3} 
               onChange={this.handleChange} /> 
-              <span class="validity"></span>
+            <div style={{fontSize: 15,color:'red'}}>{this.state.err3}</div>
           </label>
 
           <br></br><br></br>
 
-          <button type = "button"  onClick = {this.handleClick} className = "App"> Calculate </button>
+          <button id = "calculate" type = "button"  onClick = {this.handleClick} className = "App"> Calculate </button>
         </form>
         <label>
             <br></br>
