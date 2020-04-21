@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 //import { SketchPicker } from 'react-color';
 import { Helmet } from 'react-helmet';
+import './fonts/LemonMilkMedium-mLZYV.otf'
 
 export default class App extends Component {
 
@@ -30,11 +31,14 @@ export default class App extends Component {
 
   
   handleClick(event) {
+    
     var a = eval(this.state.side_1 * this.state.side_1)
     var b = eval(this.state.side_2 * this.state.side_2)
     var c = eval(this.state.side_3 * this.state.side_3)
-  
-    if(this.state.side_1 >= 0 && this.state.side_2>= 0 && this.state.side_3 >= 0){
+    
+    
+
+    if(this.state.side_1 >= 0 && this.state.side_2 >= 0 && this.state.side_3 >= 0){
         if((eval((this.state.side_1*1) + (this.state.side_2*1)) < (this.state.side_3*1))
         || (eval((this.state.side_2*1) + (this.state.side_3*1)) < (this.state.side_1*1))
         || (eval((this.state.side_1*1) + (this.state.side_3*1)) < (this.state.side_2*1))){
@@ -61,7 +65,7 @@ export default class App extends Component {
         }
       }else {this.setState({result: "Cannont fill"})}
     
-  
+
     event.preventDefault();
   }
 
@@ -75,7 +79,7 @@ export default class App extends Component {
       <div className="App">
 
         <Helmet>
-          <title>TriangleChecker</title>
+          <title>Three Angle</title>
         </Helmet>
         
         <br></br> <br></br>
@@ -87,10 +91,14 @@ export default class App extends Component {
             <br></br>
             <t>Side1   : </t> 
             <input 
-            type ="number" 
+            type = "number" 
             name = "side_1"
+            placeholder="Enter Number" 
+            min="0" max="100"
+            required
             side_1 ={this.state.side_1}
             onChange={this.handleChange} /> 
+            <span class="validity"></span>
           </label>
           
           <br></br>
@@ -101,8 +109,11 @@ export default class App extends Component {
             <input 
             type = "number" 
             name = "side_2"
+            placeholder="Enter Number" 
+            required
             side_2 ={this.state.side_2} 
             onChange={this.handleChange} /> 
+            <span class="validity"></span>
           </label>
 
           <br></br>
@@ -113,18 +124,21 @@ export default class App extends Component {
             <input 
               type="number" 
               name = "side_3"
+              placeholder="Enter Number" 
+              required
               side_3 ={this.state.side_3} 
               onChange={this.handleChange} /> 
+              <span class="validity"></span>
           </label>
 
           <br></br><br></br>
 
-          <button type = "button" onClick = {this.handleClick} className = "App"> Calculate </button>
+          <button type = "button"  onClick = {this.handleClick} className = "App"> Calculate </button>
         </form>
         <label>
             <br></br>
-            <t>Result   : </t> 
-            {this.state.result}
+            <t>Result   : </t><br></br> <br></br> 
+            <label style= {{fontSize: 35,color: "white"}}>{this.state.result}</label>
         </label>
 
       
