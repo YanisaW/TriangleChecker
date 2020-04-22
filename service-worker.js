@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/TriangleChecker/precache-manifest.810adc24752b73e505026292ea500a67.js"
+  "/TriangleChecker/precache-manifest.c8f22fff18e78d32e0c761e4d5c5d5a9.js"
 );
 
 self.addEventListener('message', (event) => {
