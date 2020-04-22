@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-//import { SketchPicker } from 'react-color';
 import { Helmet } from 'react-helmet';
 import './fonts/LemonMilkMedium-mLZYV.otf'
 
@@ -13,10 +12,8 @@ const initialState = {
   err1: "",
   err2: "",
   err3: "",
-  field: {}
+
 }
-
-
 
 export default class App extends React.Component {
 
@@ -30,7 +27,8 @@ export default class App extends React.Component {
 
   
   handleChange(e){
-    this.setState( { [e.target.name] : e.target.value} )
+        
+    this.setState( {[e.target.name] : e.target.value} )
   }
 
   handleChangeComplete = (color) => {
@@ -41,62 +39,67 @@ export default class App extends React.Component {
     let err1 =  "";
     let err2 =  "";
     let err3 =  "";
-    let field = this.state.field; 
    
-
-
-    if(!this.state.side_1){
-     
-      err1 = 'cannot be empty!';
+    if(this.state.side_1 === ""){
+      err1 = 'Fields cannot be empty!';
     }
-    if(this.state.side_1 !== ""){
+    else if(this.state.side_1 !== ""){
       if(this.state.side_1 <= 0){
-       
-        err1 = 'cannot be negative or zero';
+        err1 = 'Fields cannot be negative or zero';
       }
-      if(this.state.side_1 > 100){
-        err1 = 'out of bound. max number is 100';
+      else if(this.state.side_1 > 100000){
+        err1 = 'Out of bound. max number is 100000';
       }
     }
+    /*-----------------------------------------------------*/
 
     if(!this.state.side_2){
-      err2 = 'cannot be empty!';
+      err2 = 'Fields cannot be empty!';
     }
-    if(this.state.side_2 !== ""){
+    else if(this.state.side_2 !== ""){
       if(this.state.side_2 <= 0){
        
-        err2 = 'cannot be negative or zero';
+        err2 = 'Fields cannot be negative or zero';
       }
-      if(this.state.side_2 > 100){
-        err2 = 'out of bound. max number is 100';
+      else if(this.state.side_2 > 100000){
+        err2 = 'Out of bound. max number is 100000';
       }
     }
+
+     /*-----------------------------------------------------*/
 
     if(!this.state.side_3){
-      err3 = 'cannot be empty!';
+      err3 = 'Fields cannot be empty!';
     }
-    if(this.state.side_3 !== ""){
+    else if(this.state.side_3 !== ""){
       if(this.state.side_3 <= 0){
        
-        err3 = 'cannot be negative or zero';
+        err3 = 'Fields cannot be negative or zero';
       }
-      if(this.state.side_3 > 100){
-        err3 = 'out of bound. max number is 100';
+      else if(this.state.side_3 > 100000){
+        err3 = 'Out of bound. The maximum number is 100000';
       }
     }
+
+     /*-----------------------------------------------------*/
 
     if(err1||err2||err3){
-      this.setState({err1});
-      this.setState({err2});
-      this.setState({err3});
+      this.setState({err1,err2,err3});
+     
       return false;
     }
+    else{
+      err1 = "";
+      err2 = "";
+      err3 = "";
+      this.setState({err1,err2,err3});
+      return true;
+    }
 
-    return true;
+   
   };
 
   resetForm = () =>{
-    
     this.setState(initialState);
   }
   
@@ -122,7 +125,7 @@ export default class App extends React.Component {
         else if(((this.state.side_1 === this.state.side_2) && (this.state.side_1 !== this.state.side_3)) 
         || ((this.state.side_2 === this.state.side_3) && (this.state.side_2 !== this.state.side_1))
         || ((this.state.side_1 === this.state.side_3) && (this.state.side_1 !== this.state.side_2))){
-          this.setState({result: "[ Isosceles Triangle | สามเหลี่ยมหน้าจั่ว]"})
+          this.setState({result: "[ Isosceles Triangle | สามเหลี่ยมหน้าจั่ว ]"})
         }
    
         else if((a === eval(b+c)) || (b === eval(a+c)) || (c === eval(a+b))){
@@ -131,7 +134,7 @@ export default class App extends React.Component {
   
 
         else if((this.state.side_1 !== this.state.side_2) && (this.state.side_2 !== this.state.side_3) && (this.state.side_1 !== this.state.side_3) ){
-        this.setState({result: "[ Scalene Triangle | สามเหลี่ยมด้านไม่เท่า]"})
+        this.setState({result: "[ Scalene Triangle | สามเหลี่ยมด้านไม่เท่า ]"})
         }
   
     }
@@ -160,8 +163,8 @@ export default class App extends React.Component {
         <text style={{fontSize:50,color: "#FFFAE9",fontWeight:1000}}>Three Angle</text>
         <br></br>
         <text style= {{fontSize : 28}}>Enter the length of sides</text>
-        <br></br>--ensure that your fill the number again after you clicked reset button--
-        <form ref={form => this.foem = form}>
+        <br></br>--Click on the reset button to clear the fields--
+        <form>
 
           <label >
             <br></br>
@@ -169,6 +172,7 @@ export default class App extends React.Component {
             <input 
             type = "number" 
             name = "side_1"
+            min="1" max="100000"
             placeholder="Enter Number" 
             required
             value= {this.state.side_1}
@@ -209,7 +213,7 @@ export default class App extends React.Component {
           <br></br>
 
           <button id = "calculate" type = "button" onClick = {this.handleClick} className = "App"> Calculate </button>
-          <button id = "clear" type = "button" onClick = {this.resetForm;} className = "App"> Reset</button>
+          <button id = "clear" type = "button" onClick = {this.resetForm} className = "App"> Reset</button>
 
         </form>
         <label>
