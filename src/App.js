@@ -98,9 +98,6 @@ export default class App extends React.Component {
   resetForm = () =>{
     
     this.setState(initialState);
-    document.getElementById('input1').value = '';
-    document.getElementById('input2').value = '';
-    document.getElementById('input2').value = '';
   }
   
   handleClick(event) {
@@ -170,13 +167,11 @@ export default class App extends React.Component {
             <br></br>
             <t>Side1   : </t> 
             <input 
-            id = "input1"
             type = "number" 
             name = "side_1"
             placeholder="Enter Number" 
             required
-            value={this.state.field["side_1"]}
-            side_1 ={this.state.side_1}
+            value= {this.state.side_1}
             onChange={this.handleChange} /> 
             <div style={{fontSize: 15,color:'red'}}>{this.state.err1}</div>
           </label>
@@ -187,13 +182,11 @@ export default class App extends React.Component {
             <br></br>
             <t>Side2   : </t> 
             <input 
-            id = "input2"
             type = "number" 
             name = "side_2"
             placeholder="Enter Number" 
             required
-            value={this.state.field["side_2"]}
-            side_2 ={this.state.side_2} 
+            value={this.state.side_2} 
             onChange={this.handleChange} /> 
             <div style={{fontSize: 15,color:'red'}}>{this.state.err2}</div>
           </label>
@@ -204,13 +197,11 @@ export default class App extends React.Component {
             <br></br>
             <t>Side3   : </t> 
             <input 
-              id = "input3"
               type="number" 
               name = "side_3"
               placeholder="Enter Number" 
               required
-              value={this.state.field["side_3"]}
-              side_3 ={this.state.side_3} 
+              value= {this.state.side_3} 
               onChange={this.handleChange} /> 
             <div style={{fontSize: 15,color:'red'}}>{this.state.err3}</div>
           </label>
