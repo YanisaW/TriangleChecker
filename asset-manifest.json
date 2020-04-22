@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/TriangleChecker/static/css/main.83678e27.chunk.css",
-    "main.js": "/TriangleChecker/static/js/main.e1afdfb1.chunk.js",
-    "main.js.map": "/TriangleChecker/static/js/main.e1afdfb1.chunk.js.map",
+    "main.js": "/TriangleChecker/static/js/main.40d1361a.chunk.js",
+    "main.js.map": "/TriangleChecker/static/js/main.40d1361a.chunk.js.map",
     "runtime-main.js": "/TriangleChecker/static/js/runtime-main.2361f471.js",
     "runtime-main.js.map": "/TriangleChecker/static/js/runtime-main.2361f471.js.map",
     "static/js/2.a49c0816.chunk.js": "/TriangleChecker/static/js/2.a49c0816.chunk.js",
     "static/js/2.a49c0816.chunk.js.map": "/TriangleChecker/static/js/2.a49c0816.chunk.js.map",
     "index.html": "/TriangleChecker/index.html",
-    "precache-manifest.04db5b4881fd8d7d871959c26eb00b14.js": "/TriangleChecker/precache-manifest.04db5b4881fd8d7d871959c26eb00b14.js",
+    "precache-manifest.132176da609123331c7a57ae1289c6ef.js": "/TriangleChecker/precache-manifest.132176da609123331c7a57ae1289c6ef.js",
     "service-worker.js": "/TriangleChecker/service-worker.js",
     "static/css/main.83678e27.chunk.css.map": "/TriangleChecker/static/css/main.83678e27.chunk.css.map",
     "static/js/2.a49c0816.chunk.js.LICENSE.txt": "/TriangleChecker/static/js/2.a49c0816.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.2361f471.js",
     "static/js/2.a49c0816.chunk.js",
     "static/css/main.83678e27.chunk.css",
-    "static/js/main.e1afdfb1.chunk.js"
+    "static/js/main.40d1361a.chunk.js"
   ]
 }
