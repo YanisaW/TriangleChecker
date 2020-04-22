@@ -3,6 +3,11 @@ import logo from './logo.svg';
 import './App.css';
 import { Helmet } from 'react-helmet';
 import './fonts/LemonMilkMedium-mLZYV.otf'
+import keydown from 'react-keydown';
+
+
+const Keys = [ '+','-', 'e' ];
+
 
 const initialState = {
   side_1: "",
@@ -15,7 +20,12 @@ const initialState = {
 
 }
 
+
 export default class App extends React.Component {
+
+  myMethod( event ) {
+    console.log( event ); // should log only on 'a' keystroke, whether input is focused or not
+  }
 
   constructor(props) {
     super(props);
@@ -23,13 +33,16 @@ export default class App extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+
   }
 
   
   handleChange(e){
-        
     this.setState( {[e.target.name] : e.target.value} )
   }
+
+
+
 
   handleChangeComplete = (color) => {
     this.setState({ background: color.hex });
@@ -146,14 +159,15 @@ export default class App extends React.Component {
     event.preventDefault();
   }
 
+
   
   render() {
     
     return (
       
       
-
       <div className="App">
+           
 
         <Helmet>
           <title>Three Angle</title>
@@ -176,7 +190,14 @@ export default class App extends React.Component {
             placeholder="Enter Number" 
             required
             value= {this.state.side_1}
-            onChange={this.handleChange} /> 
+            onChange={this.handleChange} 
+            onKeyPress= {document.addEventListener("keypress",function (e){
+              if (e.which != 8 && e.which != 0 && e.which < 48 || e.which > 57)
+              {
+                  e.preventDefault();
+              }
+            })}
+            /> 
             <div style={{fontSize: 15,color:'red'}}>{this.state.err1}</div>
           </label>
           
@@ -189,9 +210,14 @@ export default class App extends React.Component {
             type = "number" 
             name = "side_2"
             placeholder="Enter Number" 
-            required
             value={this.state.side_2} 
-            onChange={this.handleChange} /> 
+            onChange={this.handleChange} 
+            onKeyPress= {document.addEventListener("keypress",function (e){
+              if (e.which != 8 && e.which != 0 && e.which < 46 || e.which > 57)
+              {
+                  e.preventDefault();
+              }
+            })}/> 
             <div style={{fontSize: 15,color:'red'}}>{this.state.err2}</div>
           </label>
 
