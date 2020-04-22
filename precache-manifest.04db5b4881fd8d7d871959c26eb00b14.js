@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "99c0461513a6a7974cdee91b7e86c6a3",
+    "revision": "823fcc1fe9ff358782912b7de8622914",
     "url": "/TriangleChecker/index.html"
   },
   {
-    "revision": "da70cc127a6b2acdc92f",
-    "url": "/TriangleChecker/static/css/main.1a38d0c8.chunk.css"
+    "revision": "32f5f4a0c408c5c72fed",
+    "url": "/TriangleChecker/static/css/main.83678e27.chunk.css"
   },
   {
     "revision": "92d865f36cf25ff64e5b",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TriangleChecker/static/js/2.a49c0816.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "da70cc127a6b2acdc92f",
-    "url": "/TriangleChecker/static/js/main.dab46ac7.chunk.js"
+    "revision": "32f5f4a0c408c5c72fed",
+    "url": "/TriangleChecker/static/js/main.e1afdfb1.chunk.js"
   },
   {
     "revision": "1b187ab0e6ba59c8eac7",
@@ -36,7 +36,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TriangleChecker/static/media/Serithai-Regular.52c11405.ttf"
   },
   {
-    "revision": "5d5d9eefa31e5e13a6610d9fa7a283bb",
-    "url": "/TriangleChecker/static/media/logo.5d5d9eef.svg"
+    "revision": "ee7cd8ed2dcec943251eb2763684fc6f",
+    "url": "/TriangleChecker/static/media/logo.ee7cd8ed.svg"
   }
 ]);
