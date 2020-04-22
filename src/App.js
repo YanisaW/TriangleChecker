@@ -58,11 +58,9 @@ export default class App extends React.Component {
     }
     else if(this.state.side_1 !== ""){
       if(this.state.side_1 <= 0){
-        err1 = 'Fields cannot be negative or zero';
+        err1 = 'Fields cannot be zero';
       }
-      else if(this.state.side_1 > 100000){
-        err1 = 'Out of bound. max number is 100000';
-      }
+     
     }
     /*-----------------------------------------------------*/
 
@@ -72,11 +70,9 @@ export default class App extends React.Component {
     else if(this.state.side_2 !== ""){
       if(this.state.side_2 <= 0){
        
-        err2 = 'Fields cannot be negative or zero';
+        err2 = 'Fields cannot be zero';
       }
-      else if(this.state.side_2 > 100000){
-        err2 = 'Out of bound. max number is 100000';
-      }
+     
     }
 
      /*-----------------------------------------------------*/
@@ -87,11 +83,9 @@ export default class App extends React.Component {
     else if(this.state.side_3 !== ""){
       if(this.state.side_3 <= 0){
        
-        err3 = 'Fields cannot be negative or zero';
+        err3 = 'Fields cannot be zero';
       }
-      else if(this.state.side_3 > 100000){
-        err3 = 'Out of bound. The maximum number is 100000';
-      }
+     
     }
 
      /*-----------------------------------------------------*/
@@ -105,7 +99,8 @@ export default class App extends React.Component {
       err1 = "";
       err2 = "";
       err3 = "";
-      this.setState({err1,err2,err3});
+      
+      this.setState({err1,err2,err3,result:""});
       return true;
     }
 
@@ -124,6 +119,9 @@ export default class App extends React.Component {
     var c = eval(this.state.side_3 * this.state.side_3)
     
     if(isValid){
+      if(this.state.result !== ""){
+        this.setState({result:""});
+      }
      
       if((eval((this.state.side_1*1) + (this.state.side_2*1)) < (this.state.side_3*1))
         || (eval((this.state.side_2*1) + (this.state.side_3*1)) < (this.state.side_1*1))
@@ -186,18 +184,21 @@ export default class App extends React.Component {
             <input 
             type = "number" 
             name = "side_1"
-            min="1" max="100000"
-            placeholder="Enter Number" 
-            required
+            placeholder="Enter Number"
+            onPasteCapture="return false"
             value= {this.state.side_1}
             onChange={this.handleChange} 
+            onPaste = {document.addEventListener("paste",function (e){
+              if(e.which !== ""){
+                e.preventDefault();
+              }
+            })}
             onKeyPress= {document.addEventListener("keypress",function (e){
               if (e.which != 8 && e.which != 0 && e.which < 48 || e.which > 57)
               {
                   e.preventDefault();
               }
-            })}
-            /> 
+            })}/> 
             <div style={{fontSize: 15,color:'red'}}>{this.state.err1}</div>
           </label>
           
@@ -212,6 +213,11 @@ export default class App extends React.Component {
             placeholder="Enter Number" 
             value={this.state.side_2} 
             onChange={this.handleChange} 
+            onPaste = {document.addEventListener("paste",function (e){
+              if(e.which !== ""){
+                e.preventDefault();
+              }
+            })}
             onKeyPress= {document.addEventListener("keypress",function (e){
               if (e.which != 8 && e.which != 0 && e.which < 46 || e.which > 57)
               {
@@ -230,8 +236,18 @@ export default class App extends React.Component {
               type="number" 
               name = "side_3"
               placeholder="Enter Number" 
-              required
               value= {this.state.side_3} 
+              onPaste = {document.addEventListener("paste",function (e){
+                if(e.which !== ""){
+                  e.preventDefault();
+                }
+              })}
+              onKeyPress= {document.addEventListener("keypress",function (e){
+                if (e.which != 8 && e.which != 0 && e.which < 46 || e.which > 57)
+                {
+                    e.preventDefault();
+                }
+              })}
               onChange={this.handleChange} /> 
             <div style={{fontSize: 15,color:'red'}}>{this.state.err3}</div>
           </label>
