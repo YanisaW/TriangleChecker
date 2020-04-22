@@ -98,6 +98,9 @@ export default class App extends React.Component {
   resetForm = () =>{
     
     this.setState(initialState);
+    document.getElementById('input1').value = '';
+    document.getElementById('input2').value = '';
+    document.getElementById('input2').value = '';
   }
   
   handleClick(event) {
@@ -167,6 +170,7 @@ export default class App extends React.Component {
             <br></br>
             <t>Side1   : </t> 
             <input 
+            id = "input1"
             type = "number" 
             name = "side_1"
             placeholder="Enter Number" 
@@ -183,6 +187,7 @@ export default class App extends React.Component {
             <br></br>
             <t>Side2   : </t> 
             <input 
+            id = "input2"
             type = "number" 
             name = "side_2"
             placeholder="Enter Number" 
@@ -199,6 +204,7 @@ export default class App extends React.Component {
             <br></br>
             <t>Side3   : </t> 
             <input 
+              id = "input3"
               type="number" 
               name = "side_3"
               placeholder="Enter Number" 
@@ -212,7 +218,7 @@ export default class App extends React.Component {
           <br></br>
 
           <button id = "calculate" type = "button" onClick = {this.handleClick} className = "App"> Calculate </button>
-          <button id = "clear" type = "button" onClick = {this.resetForm} className = "App"> Reset</button>
+          <button id = "clear" type = "button" onClick = {this.resetForm;} className = "App"> Reset</button>
 
         </form>
         <label>
