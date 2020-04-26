@@ -56,8 +56,9 @@ export default class App extends React.Component {
       else if(this.state.side_1 < 0){
         err1 = 'Fields cannot be negative';
       }
-      
-     
+      else if(this.state.side_1 > 65535){
+        err1 = 'Fields cannot be more than 2 Byte';
+      }
     }
     /*-----------------------------------------------------*/
 
@@ -71,7 +72,9 @@ export default class App extends React.Component {
       else if(this.state.side_2 < 0){
         err2 = 'Fields cannot be negative';
       }
-     
+      else if(this.state.side_2 > 65535){
+        err2 = 'Fields cannot be more than 2 Byte';
+      }
     }
 
      /*-----------------------------------------------------*/
@@ -85,6 +88,9 @@ export default class App extends React.Component {
       }
       else if(this.state.side_3 < 0){
         err3 = 'Fields cannot be negative';
+      }
+      else if(this.state.side_3 > 65535){
+        err3 = 'Fields cannot be more than 2 Byte';
       } 
     }
 
@@ -184,6 +190,8 @@ export default class App extends React.Component {
             type = "number" 
             name = "side_1"
             placeholder="Enter Number"
+            min = "0"
+            max = "65535"
             onPasteCapture="return false"
             value= {this.state.side_1}
             onChange={this.handleChange} 
@@ -210,6 +218,8 @@ export default class App extends React.Component {
             type = "number" 
             name = "side_2"
             placeholder="Enter Number" 
+            min = "0"
+            max = "65535"
             value={this.state.side_2} 
             onChange={this.handleChange} 
             onPaste = {document.addEventListener("paste",function (e){
@@ -235,6 +245,8 @@ export default class App extends React.Component {
               type="number" 
               name = "side_3"
               placeholder="Enter Number" 
+              min = "0"
+              max = "65535"
               value= {this.state.side_3} 
               onPaste = {document.addEventListener("paste",function (e){
                 if(e.which !== ""){
