@@ -3,11 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import { Helmet } from 'react-helmet';
 import './fonts/LemonMilkMedium-mLZYV.otf'
-import keydown from 'react-keydown';
-
-
-const Keys = [ '+','-', 'e' ];
-
 
 const initialState = {
   side_1: "",
@@ -42,8 +37,6 @@ export default class App extends React.Component {
   }
 
 
-
-
   handleChangeComplete = (color) => {
     this.setState({ background: color.hex });
   };
@@ -57,9 +50,13 @@ export default class App extends React.Component {
       err1 = 'Fields cannot be empty!';
     }
     else if(this.state.side_1 !== ""){
-      if(this.state.side_1 <= 0){
+      if(this.state.side_1 === 0){
         err1 = 'Fields cannot be zero';
       }
+      else if(this.state.side_1 < 0){
+        err1 = 'Fields cannot be negative';
+      }
+      
      
     }
     /*-----------------------------------------------------*/
@@ -68,9 +65,11 @@ export default class App extends React.Component {
       err2 = 'Fields cannot be empty!';
     }
     else if(this.state.side_2 !== ""){
-      if(this.state.side_2 <= 0){
-       
+      if(this.state.side_2 === 0){
         err2 = 'Fields cannot be zero';
+      }
+      else if(this.state.side_2 < 0){
+        err2 = 'Fields cannot be negative';
       }
      
     }
@@ -81,18 +80,18 @@ export default class App extends React.Component {
       err3 = 'Fields cannot be empty!';
     }
     else if(this.state.side_3 !== ""){
-      if(this.state.side_3 <= 0){
-       
+      if(this.state.side_3 === 0){
         err3 = 'Fields cannot be zero';
       }
-     
+      else if(this.state.side_3 < 0){
+        err3 = 'Fields cannot be negative';
+      } 
     }
 
      /*-----------------------------------------------------*/
 
     if(err1||err2||err3){
-      this.setState({err1,err2,err3});
-     
+      this.setState({err1,err2,err3}); 
       return false;
     }
     else{
@@ -123,9 +122,9 @@ export default class App extends React.Component {
         this.setState({result:""});
       }
      
-      if((eval((this.state.side_1*1) + (this.state.side_2*1)) < (this.state.side_3*1))
-        || (eval((this.state.side_2*1) + (this.state.side_3*1)) < (this.state.side_1*1))
-        || (eval((this.state.side_1*1) + (this.state.side_3*1)) < (this.state.side_2*1))){
+      if((eval((this.state.side_1*1) + (this.state.side_2*1)) <= (this.state.side_3*1))
+        || (eval((this.state.side_2*1) + (this.state.side_3*1)) <= (this.state.side_1*1))
+        || (eval((this.state.side_1*1) + (this.state.side_3*1)) <= (this.state.side_2*1))){
           this.setState({result: "[ Not a Triangle | เป็นสามเหลี่ยมไม่ได้ ]"})
         }
 
@@ -140,7 +139,7 @@ export default class App extends React.Component {
         }
    
         else if((a === eval(b+c)) || (b === eval(a+c)) || (c === eval(a+b))){
-          this.setState({result: "[ Right Triangle | สามเหลี่ยมุมฉาก ]"})
+          this.setState({result: "[ Right Triangle | สามเหลี่ยมมุมฉาก ]"})
         }
   
 
@@ -264,13 +263,7 @@ export default class App extends React.Component {
             
            <label style= {{fontSize: 40,color: "#FFFAE9"}}>{this.state.result}</label>
         </label>
-
-      
-
-      </div>
-
-      
-      
+      </div>     
     );
   }
 }
