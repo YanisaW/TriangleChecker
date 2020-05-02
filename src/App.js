@@ -50,7 +50,7 @@ export default class App extends React.Component {
       err1 = 'Fields cannot be empty!';
     }
     else if(this.state.side_1 !== ""){
-      if(this.state.side_1 === 0){
+      if(this.state.side_1 === '0'){
         err1 = 'Fields cannot be zero';
       }
       else if(this.state.side_1 < 0){
@@ -66,7 +66,7 @@ export default class App extends React.Component {
       err2 = 'Fields cannot be empty!';
     }
     else if(this.state.side_2 !== ""){
-      if(this.state.side_2 === 0){
+      if(this.state.side_2 === '0'){
         err2 = 'Fields cannot be zero';
       }
       else if(this.state.side_2 < 0){
@@ -83,7 +83,7 @@ export default class App extends React.Component {
       err3 = 'Fields cannot be empty!';
     }
     else if(this.state.side_3 !== ""){
-      if(this.state.side_3 === 0){
+      if(this.state.side_3 === '0'){
         err3 = 'Fields cannot be zero';
       }
       else if(this.state.side_3 < 0){
@@ -190,7 +190,6 @@ export default class App extends React.Component {
             type = "number" 
             name = "side_1"
             placeholder="Enter Number"
-            min = "0"
             max = "65535"
             onPasteCapture="return false"
             value= {this.state.side_1}
@@ -201,7 +200,7 @@ export default class App extends React.Component {
               }
             })}
             onKeyPress= {document.addEventListener("keypress",function (e){
-              if (e.which != 8 && e.which != 0 && e.which < 48 || e.which > 57)
+              if (e.which !== 8 && e.which !== 0 && e.which < 48 || e.which > 57)
               {
                   e.preventDefault();
               }
@@ -218,7 +217,6 @@ export default class App extends React.Component {
             type = "number" 
             name = "side_2"
             placeholder="Enter Number" 
-            min = "0"
             max = "65535"
             value={this.state.side_2} 
             onChange={this.handleChange} 
@@ -228,7 +226,7 @@ export default class App extends React.Component {
               }
             })}
             onKeyPress= {document.addEventListener("keypress",function (e){
-              if (e.which != 8 && e.which != 0 && e.which < 46 || e.which > 57)
+              if (e.which !== 8 && e.which !== 0 && e.which < 46 || e.which > 57)
               {
                   e.preventDefault();
               }
@@ -245,7 +243,6 @@ export default class App extends React.Component {
               type="number" 
               name = "side_3"
               placeholder="Enter Number" 
-              min = "0"
               max = "65535"
               value= {this.state.side_3} 
               onPaste = {document.addEventListener("paste",function (e){
@@ -254,7 +251,7 @@ export default class App extends React.Component {
                 }
               })}
               onKeyPress= {document.addEventListener("keypress",function (e){
-                if (e.which != 8 && e.which != 0 && e.which < 46 || e.which > 57)
+                if (e.which !== 8 && e.which !== 0 && e.which < 46 || e.which > 57)
                 {
                     e.preventDefault();
                 }
